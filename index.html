@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyFlow Weather Dashboard</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="theme-default">
+    <div class="dashboard-container">
+        <!-- Sidebar for Saved Locations -->
+        <aside class="sidebar">
+            <h2>Saved Locations</h2>
+            <ul id="saved-locations-list" class="saved-list">
+                <!-- Dynamically populated via JS -->
+                <li class="empty-saved-msg">No saved cities yet</li>
+            </ul>
+        </aside>
+
+        <!-- Main Display Content -->
+        <main class="main-content">
+            <header>
+                <h1>SkyFlow</h1>
+                <p class="subtitle">Live weather metrics with adaptive themes</p>
+            </header>
+
+            <!-- Search Area -->
+            <section class="search-section">
+                <form id="search-form" autocomplete="off">
+                    <div class="search-input-wrapper">
+                        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                        <input 
+                            type="text" 
+                            id="city-input" 
+                            placeholder="Search for a city... e.g., Tokyo, London" 
+                            required
+                        >
+                    </div>
+                    <button type="submit" class="btn-search">Search</button>
+                </form>
+            </section>
+
+            <!-- Card Containers for States -->
+            <section class="display-section">
+                <!-- 1. LOADING STATE -->
+                <div id="weather-loading" class="weather-card loading-card hidden">
+                    <div class="spinner"></div>
+                    <p>Fetching weather data...</p>
+                </div>
+
+                <!-- 2. ERROR STATE -->
+                <div id="weather-error" class="weather-card error-card hidden">
+                    <div class="error-icon">⚠️</div>
+                    <p id="error-message">City not found. Please verify spelling.</p>
+                </div>
+
+                <!-- 3. INITIAL STATE / INTRO -->
+                <div id="weather-intro" class="weather-card intro-card">
+                    <div class="intro-visual">🌍</div>
+                    <h3>Ready to explore?</h3>
+                    <p>Enter a city name above to view real-time weather metrics.</p>
+                </div>
+
+                <!-- 4. ACTIVE DATA STATE -->
+                <div id="weather-data-card" class="weather-card data-card hidden">
+                    <div class="card-header">
+                        <div>
+                            <h2 id="display-city-name">London</h2>
+                            <p id="display-country">United Kingdom</p>
+                        </div>
+                        <button id="btn-save-city" class="btn-save" aria-label="Save location">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="temp-section">
+                            <span id="display-temp" class="temp-value">18</span><span class="temp-unit">°C</span>
+                            <p id="display-condition" class="condition-text">Partly Cloudy</p>
+                        </div>
+                    </div>
+
+                    <div class="card-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Humidity</span>
+                            <span id="display-humidity" class="metric-val">65%</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Wind Speed</span>
+                            <span id="display-wind" class="metric-val">12 km/h</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>

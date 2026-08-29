@@ -1,0 +1,410 @@
+/* Modern CSS variables with color transitions */
+:root {
+    --bg-app: #0f172a;
+    --bg-sidebar: #1e293b;
+    --bg-card: rgba(30, 41, 59, 0.7);
+    --border-color: rgba(255, 255, 255, 0.06);
+    --accent-color: #38bdf8; /* Sky Blue */
+    --accent-hover: #0ea5e9;
+    
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    
+    --gradient-card: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+    --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    --transition-theme: background-color 0.8s ease, border-color 0.8s ease;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 16px;
+}
+
+/* Adaptive Theme Modifiers */
+body.theme-hot {
+    --bg-app: #1c0e0b;
+    --bg-sidebar: #2c1611;
+    --bg-card: rgba(44, 22, 17, 0.7);
+    --accent-color: #f97316; /* Orange */
+    --accent-hover: #ea580c;
+    --gradient-card: linear-gradient(135deg, rgba(44, 22, 17, 0.8) 0%, rgba(28, 14, 11, 0.8) 100%);
+}
+
+body.theme-cold {
+    --bg-app: #081120;
+    --bg-sidebar: #0f2038;
+    --bg-card: rgba(15, 32, 56, 0.7);
+    --accent-color: #38bdf8; /* Sky Blue */
+    --accent-hover: #0ea5e9;
+    --gradient-card: linear-gradient(135deg, rgba(15, 32, 56, 0.8) 0%, rgba(8, 17, 32, 0.8) 100%);
+}
+
+body.theme-rainy {
+    --bg-app: #111827;
+    --bg-sidebar: #1f2937;
+    --bg-card: rgba(31, 41, 55, 0.7);
+    --accent-color: #6366f1; /* Indigo */
+    --accent-hover: #4f46e5;
+    --gradient-card: linear-gradient(135deg, rgba(31, 41, 55, 0.8) 0%, rgba(17, 24, 39, 0.8) 100%);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-app);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    transition: var(--transition-theme);
+}
+
+/* App Layout Grid */
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    width: 100%;
+    max-width: 860px;
+    background-color: var(--bg-sidebar);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    box-shadow: var(--shadow-premium);
+    overflow: hidden;
+    min-height: 520px;
+    transition: var(--transition-theme);
+}
+
+/* Sidebar Styling */
+.sidebar {
+    padding: 2rem 1.5rem;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.sidebar h2 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.saved-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.saved-list li {
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.saved-list li:hover {
+    background-color: rgba(255, 255, 255, 0.06);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+.saved-list li .btn-remove-saved {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    padding: 0.2rem;
+    border-radius: 4px;
+}
+
+.saved-list li .btn-remove-saved:hover {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.1);
+}
+
+.empty-saved-msg {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 1rem 0;
+    cursor: default !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Main Panel Styling */
+.main-content {
+    background-color: var(--bg-app);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: var(--transition-theme);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff 0%, var(--text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+/* Search Bar styling */
+#search-form {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.search-input-wrapper {
+    position: relative;
+    flex-grow: 1;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+#city-input {
+    width: 100%;
+    background-color: rgba(15, 23, 42, 0.4);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 0.85rem 1rem 0.85rem 2.75rem;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    outline: none;
+    transition: var(--transition-smooth);
+}
+
+#city-input:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+.btn-search {
+    background-color: var(--accent-color);
+    color: #0f172a;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 0 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.btn-search:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+}
+
+/* Weather Card Layouts */
+.weather-card {
+    background: var(--gradient-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 260px;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-premium);
+}
+
+/* State Modifiers: hidden class */
+.hidden {
+    display: none !important;
+}
+
+/* Intro and Error Visuals */
+.intro-visual {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: rotateGlobe 20s linear infinite;
+}
+
+.error-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Spinner Animation */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+/* Data Weather Card */
+.data-card {
+    align-items: stretch;
+    text-align: left;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-header h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.card-header p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+}
+
+.btn-save {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: 0.6rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    transition: var(--transition-smooth);
+}
+
+.btn-save svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.btn-save:hover {
+    color: #ec4899; /* Pink */
+    background-color: rgba(236, 72, 153, 0.1);
+    border-color: rgba(236, 72, 153, 0.2);
+}
+
+/* Active Saved Visual style */
+.btn-save.saved-active {
+    background-color: #ec4899;
+    color: #ffffff;
+    border-color: #ec4899;
+}
+
+.temp-section {
+    margin-bottom: 1.5rem;
+}
+
+.temp-value {
+    font-size: 4.5rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+}
+
+.temp-unit {
+    font-size: 2rem;
+    font-weight: 600;
+    vertical-align: super;
+    color: var(--text-secondary);
+}
+
+.condition-text {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-weight: 600;
+}
+
+/* Metrics Row */
+.card-metrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.metric-item {
+    background-color: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.metric-val {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* Keyframe Animations */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotateGlobe {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive Rules */
+@media (max-width: 680px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+    .sidebar {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naitik Baliyan - Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Liberation+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Liberation Sans', Arial, sans-serif;
+            color: #000;
+            line-height: 1.4;
+            padding: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 13.5px;
+            background-color: #fff;
+        }
+        
+        /* Header spacing similar to PDF */
+        .header {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .name {
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 12px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .email-section {
+            text-align: left;
+            font-size: 12px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+        
+        /* Video Resume Banner */
+        .video-resume-banner {
+            background-color: #ffff00;
+            color: #000;
+            text-align: center;
+            padding: 4px;
+            font-weight: bold;
+            font-size: 12px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        /* Section Styling */
+        .section-title {
+            background-color: #d3d3d3;
+            color: #000;
+            font-weight: bold;
+            padding: 3px 8px;
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            border: 1px solid #000;
+        }
+
+        /* Education Table styling */
+        .education-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        .education-table th, .education-table td {
+            border: 1px solid #000;
+            padding: 6px 8px;
+            text-align: left;
+            vertical-align: middle;
+        }
+        .education-table td {
+            font-size: 13px;
+        }
+
+        /* Lists formatting */
+        ul {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        li {
+            margin-bottom: 6px;
+        }
+        
+        .sub-list {
+            margin-left: 20px;
+            list-style-type: circle;
+        }
+
+        .project-item {
+            margin-bottom: 10px;
+            list-style-type: none;
+            margin-left: 0;
+        }
+        
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+
+        .project-description {
+            margin-left: 15px;
+            list-style-type: disc;
+        }
+
+        /* Print optimization */
+        @media print {
+            body {
+                padding: 20px;
+                font-size: 12px;
+            }
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="name">N A I T I K &nbsp; B A L I Y A N</div>
+        <div class="contact-info">
+            <div>MALE, 18</div>
+            <div>MOBILE: +91-7060203515</div>
+        </div>
+        <div class="email-section">
+            EMAILID: NAITIK.BALIYAN2026@VITSTUDENT.AC.IN
+        </div>
+        <div class="video-resume-banner">
+            VIDEO RÉSUMÉ LINK – [PASTE YOUR VIDEO RESUME LINK HERE]
+        </div>
+    </div>
+
+    <!-- EDUCATION SECTION -->
+    <div class="section-title">Education</div>
+    <table class="education-table">
+        <tr>
+            <td><strong>B.TECH IT</strong></td>
+            <td>2026-ongoing</td>
+            <td>VIT University (Vellore Campus)</td>
+            <td>TBA</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr>
+            <td><strong>AISSCE/CBSE (Class XII)</strong></td>
+            <td>2026</td>
+            <td>S.D PUBLIC SCHOOL , MUZAFFARNAGAR</td>
+            <td>86%</td>
+            <td>Rank in class</td>
+        </tr>
+        <tr>
+            <td><strong>AISCE/CBSE (Class X)</strong></td>
+            <td>2024</td>
+            <td>S.D PUBLIC SCHOOL , MUZAFFARNAGAR</td>
+            <td>92.4%</td>
+            <td>Rank in class</td>
+        </tr>
+    </table>
+
+    <!-- ACADEMIC PROJECTS SECTION -->
+    <div class="section-title">Academic Projects</div>
+    <div style="margin-left: 10px;">
+        <div class="project-item">
+            <div class="project-header">
+                <span>Personal Portfolio Website</span>
+                <span>May 2026</span>
+            </div>
+            <ul class="project-description">
+                <li>Designed and engineered a fully responsive personal portfolio website utilizing HTML5, CSS3, and JavaScript, optimizing performance and cross-device display.</li>
+            </ul>
+        </div>
+        
+        <div class="project-item">
+            <div class="project-header">
+                <span>Weather App</span>
+                <span>June 2026</span>
+            </div>
+            <ul class="project-description">
+                <li>Developed an interactive weather dashboard that integrates third-party RESTful APIs to fetch, process, and render real-time global weather metrics.</li>
+            </ul>
+        </div>
+
+        <div class="project-item">
+            <div class="project-header">
+                <span>JavaScript Task Manager</span>
+                <span>June 2026</span>
+            </div>
+            <ul class="project-description">
+                <li>Created a structured Task Manager application featuring task scheduling, categorization, and progress tracking, utilizing object-oriented principles to ensure clean architecture and data management.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- POSITIONS OF RESPONSIBILITY SECTION -->
+    <div class="section-title">Positions of Responsibility</div>
+    <ul>
+        <li><strong>House Prefect (Class X):</strong> Elected to represent student interests, maintain campus discipline, and coordinate weekly assemblies and inter-house events.</li>
+        <li><strong>Team Leader (Class XI Science Exhibition):</strong> Led a project team in designing and implementing an innovative scientific model, securing the First Prize at the intra-school exhibition.</li>
+    </ul>
+
+    <!-- SKILLS AND CERTIFICATIONS SECTION -->
+    <div class="section-title">Skills and Certifications</div>
+    <ul>
+        <li><strong>Programming Languages:</strong> Java, Python, HTML, CSS, JavaScript</li>
+        <li><strong>Certifications:</strong>
+            <ul class="sub-list">
+                <li><a href="https://drive.google.com/file/d/1Avs1vRN12BzrQ7IMf8cSg4TPCMoHVzyk/view?usp=drivesdk" target="_blank"><strong>AI &amp; ML Projects Masterclass Certificate</strong></a> (Scaler, July 2026): Upskilled in identifying, designing, and incorporating artificial intelligence and machine learning components into developer workflows and CV projects.</li>
+            </ul>
+        </li>
+    </ul>
+
+</body>
+</html>
