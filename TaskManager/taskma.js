@@ -3,9 +3,12 @@
 // ==========================================
 const taskForm = document.getElementById('task-form');
 const taskInput = document.getElementById('task-input');
-const prioritySelect = document.getElementById('priority-select');
+const prioritySelect = document.getElementById('priority');
 const taskListElement = document.getElementById('task-list');
 const taskCounter = document.getElementById('task-counter');
+prioritySelect.addEventListener('change', function () {
+    this.classList.add('has-value');
+});
 
 // ==========================================
 // 2. STATE (Data Store in Memory & Local Storage)
@@ -114,7 +117,9 @@ taskForm.addEventListener('submit', (e) => {
 
     // 7. Clear the form input for the next task
     taskInput.value = '';
-    taskInput.focus();
+prioritySelect.value = '';
+prioritySelect.classList.remove('has-value');
+taskInput.focus();
 });
 
 // ==========================================
