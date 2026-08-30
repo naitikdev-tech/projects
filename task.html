@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priority Task Manager</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="taskm.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Task Flow</h1>
+            <p class="subtitle">Streamline your productivity with dynamic priorities</p>
+        </header>
+
+        <main>
+            <!-- Form to create a new task -->
+            <section class="task-form-section">
+                <form id="task-form" autocomplete="off">
+                    <div class="input-group">
+                        <label for="task-input">What needs to be done?</label>
+                        <input 
+                            type="text" 
+                            id="task-input" 
+                            placeholder="e.g., Learn event delegation in JS..." 
+                            required
+                        >
+                    </div>
+
+                    <div class="input-group select-group">
+                        <label for="priority-select">Priority</label>
+                        <select id="priority-select">
+                            <option value="low">Low Priority</option>
+                            <option value="medium" selected>Medium Priority</option>
+                            <option value="high">High Priority</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="add-task-btn" class="btn-primary">
+                        Add Task
+                    </button>
+                </form>
+            </section>
+
+            <!-- Section displaying active and completed tasks -->
+            <section class="task-list-section">
+                <div class="list-header">
+                    <h2>Your Tasks</h2>
+                    <span id="task-counter" class="counter-badge">0 tasks</span>
+                </div>
+                
+                <ul id="task-list" class="task-list">
+                    <!-- Tasks will be injected dynamically here using JavaScript -->
+                </ul>
+            </section>
+        </main>
+    </div>
+
+    <!-- Our application script -->
+    <script src="taskma.js"></script>
+</body>
+</html>
